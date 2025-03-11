@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>होली की शुभकामनाएं - लोकेश बघेल</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 होली की शुभकामनाएं - लोकेश बघेल  की तरफ से 🎨</h1>
+        <div class="photos">
+            <img src="boy.jpg" alt="Boy">
+            <img src="girl.jpg" alt="Girl">
+        </div>
+        <p>🌸 रंग बरसे भीगे चुनर वाली 🎶</p>
+        <button id="holiButton">🎉 इसे दबाएं और होली खेलें 🎉</button>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $("#holiButton").click(function() {
+                let colors = ["red", "blue", "green", "yellow", "pink", "orange", "purple"];
+                for (let i = 0; i < 50; i++) {
+                    let color = colors[Math.floor(Math.random() * colors.length)];
+                    let x = Math.random() * window.innerWidth;
+                    let y = Math.random() * window.innerHeight;
+                    
+                    let gulal = $("<div class='gulal'></div>").css({
+                        "background": color,
+                        "top": y + "px",
+                        "left": x + "px",
+                        "position": "absolute",
+                        "width": "100px",
+                        "height": "100px",
+                        "border-radius": "50%",
+                        "opacity": 1
+                    });
+
+                    $("body").append(gulal);
+                    gulal.animate({ top: (y - 300) + "px", opacity: 0 }, 2000, function() {
+                        $(this).remove();
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
